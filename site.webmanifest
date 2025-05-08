@@ -1,0 +1,21 @@
+{
+  "name": "YOLO Bar & Lounge",
+  "short_name": "YOLO",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1c1c1c",
+  "theme_color": "#c59d28",
+  "description": "Sip, Celebrate, and Explore the Fusion of Cultures at YOLO Bar & Lounge.",
+  "icons": [
+    {
+      "src": "assets/images/yolo-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/yolo-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
