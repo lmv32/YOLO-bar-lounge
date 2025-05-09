@@ -52,19 +52,30 @@
       background-color: white;
       border-radius: 2px;
     }
+    .gallery-slider {
+      width: 220px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
     .gallery-slider img {
       width: 220px;
       height: auto;
       border-radius: 12px;
-      margin: 0 auto;
       display: block;
+      transition: transform 0.8s ease-in-out;
+    }
+    footer {
+      background: #1c1c1c;
+      color: white;
+      padding: 2rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
     <div style="display: flex; align-items: center;">
-      <img src="yolo-logo.png" alt="YOLO Logo" style="height: 50px; margin-right: 1rem;">
+      <img src="assets/images/yolo-logo.png" alt="YOLO Logo" style="height: 50px; margin-right: 1rem;">
       <h1>YOLO BAR & LOUNGE</h1>
     </div>
     <div class="dropdown">
@@ -89,13 +100,13 @@
   <section class="section">
     <h2>Featured Menu</h2>
     <div class="menu-items">
-      <div class="menu-item" onclick="openModal()">
+      <div class="menu-item" onclick="alert('Signature Cocktails:\nEspresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour')">
         <h3>Signature Cocktails</h3>
-        <p>Espresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour</p>
+        <p>Crafted with global inspiration and a touch of the unexpected.</p>
       </div>
-      <div class="menu-item" onclick="openModal()">
+      <div class="menu-item" onclick="alert('Artisan Shots:\nGoldshlager, Sambuca (White/Black), Jose Cuervo Gold, Patron Silver, Brain Damage, Jellyfish, B52, AK 47')">
         <h3>Artisan Shots</h3>
-        <p>Goldshlager, Sambuca (White/Black), Jose Cuervo Gold, Patron Silver, Brain Damage, Jellyfish, B52, AK 47</p>
+        <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
       </div>
     </div>
   </section>
@@ -105,6 +116,9 @@
       <img id="galleryImage" src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" alt="Gallery Photo" />
     </div>
   </section>
+  <footer>
+    <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
+  </footer>
   <script>
     const galleryImages = [
       "assets/images/A_photograph_showcases_three_colorful_cocktails_in.png",
@@ -116,7 +130,11 @@
     const galleryImage = document.getElementById("galleryImage");
     setInterval(() => {
       currentIndex = (currentIndex + 1) % galleryImages.length;
-      galleryImage.src = galleryImages[currentIndex];
+      galleryImage.style.transform = 'translateX(-20px)';
+      setTimeout(() => {
+        galleryImage.src = galleryImages[currentIndex];
+        galleryImage.style.transform = 'translateX(0)';
+      }, 300);
     }, 3000);
   </script>
 </body>
