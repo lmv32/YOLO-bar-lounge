@@ -131,97 +131,35 @@
   
 
 
+
 <header style="display: flex; align-items: center; justify-content: space-between; background: #1c1c1c; padding: 1rem 2rem;">
   <img src="assets/images/yolo-logo-top-left.png" alt="YOLO Logo" style="height: 50px;">
-  <h1 style="margin: 0 auto; font-size: 1.5rem;">YOLO BAR & LOUNGE</h1>
-  <div class="dropdown" style="position: relative; margin-top: -4px;">
-    <div class="menu-icon" style="display: flex; flex-direction: column; justify-content: space-around; height: 20px;">
-      <span></span><span></span><span></span>
+  <h1 style="margin: 0 auto; font-size: 1.5rem; color: white;">YOLO BAR & LOUNGE</h1>
+  <div class="dropdown" style="display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer;">
+    <div class="menu-icon" style="display: flex; flex-direction: column; justify-content: space-between; height: 18px;">
+      <span style="height: 3px; width: 25px; background: white; border-radius: 2px;"></span>
+      <span style="height: 3px; width: 25px; background: white; border-radius: 2px;"></span>
+      <span style="height: 3px; width: 25px; background: white; border-radius: 2px;"></span>
     </div>
-    <div class="dropdown-content" style="position: absolute; top: 100%; right: 0;">
-
-
-  <section class="hero">
-    <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
-    <p style="margin-top: 1rem;">Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
-    <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Colorful Drinks" />
-  </section>
-
-  <section>
-    <h2>Featured Menu</h2>
-    <div class="menu-items">
-      <div class="menu-item" onclick="showModal('Signature Cocktails', [
-      {name:'Spritzer', desc:'Aperol, Prosecco, Soda Water'},
-      {name:'Americano', desc:'Campari, Sweet Vermouth, Soda Water'},
-      {name:'Negroni', desc:'Gin, Campari, Sweet Vermouth, Bitters'},
-      {name:'Dry Martini', desc:'Gin, Dry Vermouth'},
-      {name:'Vodka Martini', desc:'Vodka, Dry Vermouth'},
-      {name:'Campari Shakerato', desc:'Campari, Orange Juice, Lemon Juice'},
-      {name:'Kir', desc:'White Wine, Crème de Cassis'},
-      {name:'Espresso Martini', desc:'Vodka, Kahlua, Fresh Espresso'},
-      {name:'Hankey Pankey', desc:'Vodka, Sweet Vermouth, Fernet Branca'},
-      {name:'God Father', desc:'Bourbon Whiskey, Amaretto'},
-      {name:'God Mother', desc:'Vodka, Amaretto'},
-      {name:'Mint Julep', desc:'Bourbon, Mint, Sugar and Bitters'}
-    ])"">
-        <h3>Signature Cocktails</h3>
-        <p>Crafted with global inspiration and a touch of the unexpected.</p>
+    <div class="dropdown-content" style="position: absolute; top: 100%; right: 0; background: #1c1c1c; border-radius: 6px; display: none;">
+      <a href="https://wa.me/97430084430" style="color: white; padding: 10px 16px; display: block; text-decoration: none;">Reserve a Table</a>
+      <a href="#" onclick="openMenuModal()" style="color: white; padding: 10px 16px; display: block; text-decoration: none;">Menu</a>
+      <a href="#" onclick="openEventsModal()" style="color: white; padding: 10px 16px; display: block; text-decoration: none;">Events</a>
+      <a href="#" onclick="toggleSocial()" style="color: white; padding: 10px 16px; display: block; text-decoration: none;">Social Media</a>
+      <div id="socialLinks" style="display: none;">
+        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" style="color: white; padding: 10px 32px; display: block; text-decoration: none;">Instagram</a>
+        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" style="color: white; padding: 10px 32px; display: block; text-decoration: none;">TikTok</a>
       </div>
-      <div class="menu-item" onclick="showModal('Artisan Shots', [
-      {name:'Goldshlager', desc:'Cinnamon liqueur with gold flakes'},
-      {name:'Sambuca (White/Black)', desc:'Anise-flavored liqueur'},
-      {name:'Jose Cuervo Gold', desc:'Premium tequila'},
-      {name:'Patron Silver', desc:'High-quality silver tequila'},
-      {name:'Brain Damage', desc:'Baileys, Peach Schnapps, Grenadine'},
-      {name:'Jellyfish', desc:'Sambuca, Baileys, Blue Curaçao, Grenadine'},
-      {name:'B52', desc:'Kahlua, Baileys, Grand Marnier'},
-      {name:'AK 47', desc:'Vodka, Whiskey, Tabasco'}
-    ])"">
-        <h3>Artisan Shots</h3>
-        <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="dj-section">
-    <h2>Live DJ – Every Night</h2>
-    <p>Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
-    <img src="assets/images/dj-kimo.png" alt="DJ Kimo" />
-  </section>
-
-  
-<section>
-  <h2>Signature Gallery</h2>
-  <div class="gallery-scroll-container" style="overflow: hidden; width: 100%; position: relative;">
-    <div class="gallery-strip" id="galleryStrip" style="display: flex; gap: 1.5rem; width: max-content;">
-      <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" alt="Gallery 1" style="width: 240px; border-radius: 12px;">
-      <img src="assets/images/Fish Bowl.png" alt="Gallery 2" style="width: 240px; border-radius: 12px;">
-      <img src="assets/images/Torch Glass 2.png" alt="Gallery 3" style="width: 240px; border-radius: 12px;">
-      <img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" alt="Gallery 4" style="width: 240px; border-radius: 12px;">
-<img src="assets/images/smoked-drink.png" alt="Gallery 5" style="width: 240px; border-radius: 12px;">
-
-<img src="assets/images/smoked-drink.png" alt="Gallery 5" style="width: 240px; border-radius: 12px;">
-
-      <!-- Duplicate set for seamless scroll -->
-      <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" alt="Gallery 1" style="width: 240px; border-radius: 12px;">
-      <img src="assets/images/Fish Bowl.png" alt="Gallery 2" style="width: 240px; border-radius: 12px;">
-      <img src="assets/images/Torch Glass 2.png" alt="Gallery 3" style="width: 240px; border-radius: 12px;">
-      <img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" alt="Gallery 4" style="width: 240px; border-radius: 12px;">
     </div>
   </div>
-</section>
+</header>
 <script>
-  const strip = document.getElementById('galleryStrip');
-  let scrollX = 0;
-  const step = 1.2;
-  function loopScroll() {
-    scrollX += step;
-    if (scrollX >= strip.scrollWidth / 2) scrollX = 0;
-    strip.style.transform = 'translateX(-' + scrollX + 'px)';
-    requestAnimationFrame(loopScroll);
-  }
-  requestAnimationFrame(loopScroll);
+  document.querySelector(".menu-icon").addEventListener("click", function() {
+    const dropdown = document.querySelector(".dropdown-content");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  });
 </script>
+
 
 
   <footer>
