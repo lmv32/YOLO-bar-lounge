@@ -129,13 +129,15 @@
 <body>
 
   <header>
-    <img src="assets/images/yolo-logo-top-left.png" alt="YOLO Logo" style="height: 48px; position: absolute; top: 1.2rem; left: 2rem;">
+    <img src="assets/images/yolo-logo-top-left.png" alt="YOLO Logo" style="height: 50px; margin-right: 1rem;">
     <h1>YOLO BAR & LOUNGE</h1>
     <div class="dropdown">
       <div class="menu-icon">
         <span></span><span></span><span></span>
       </div>
       <div class="dropdown-content">
+        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">TikTok</a>
         <a href="https://wa.me/97430084430">Reserve a Table</a>
         <a href="#" onclick="openMenuModal()">Menu</a>
         <a href="#" onclick="openEventsModal()">Events</a>
@@ -152,11 +154,11 @@
   <section>
     <h2>Featured Menu</h2>
     <div class="menu-items">
-      <div class="menu-item" onclick="alert('Signature Cocktails:\nEspresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour')">
+      <div class="menu-item" onclick="alert("Signature Cocktails:\n\n• Espresso Martini\n• Mango Margarita\n• Godfather\n• Ginger Gin Fizz\n• Long Island Champagne\n• Lemongrass Daiquiri\n• Negroni\n• Whiskey Sour")">
         <h3>Signature Cocktails</h3>
         <p>Crafted with global inspiration and a touch of the unexpected.</p>
       </div>
-      <div class="menu-item" onclick="alert('Artisan Shots:\nGoldshlager, Sambuca (White/Black), Jose Cuervo Gold, Patron Silver, Brain Damage, Jellyfish, B52, AK 47')">
+      <div class="menu-item" onclick="alert("Artisan Shots:\n\n• Goldshlager\n• Sambuca (White/Black)\n• Jose Cuervo Gold\n• Patron Silver\n• Brain Damage\n• Jellyfish\n• B52\n• AK 47")">
         <h3>Artisan Shots</h3>
         <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
       </div>
@@ -183,6 +185,10 @@
 
   <footer>
     <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" style="color:white; text-decoration:none; margin: 0 1rem;">Instagram</a>
+      <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" style="color:white; text-decoration:none; margin: 0 1rem;">TikTok</a>
+    </div>
   </footer>
 
   <script>
@@ -194,20 +200,14 @@
     }
     const strip = document.getElementById('galleryStrip');
     const items = strip.children.length;
+    
     let index = 0;
     setInterval(() => {
-      index++;
-      if (index >= items) {
-        index = 0;
-        strip.style.transition = 'none';
-        strip.style.transform = 'translateX(0px)';
-        setTimeout(() => {
-          strip.style.transition = 'transform 1s ease-in-out';
-        }, 50);
-      } else {
-        strip.style.transform = 'translateX(-' + (index * 260) + 'px)';
-      }
+      index = (index + 1) % items;
+      strip.style.transition = 'transform 1s ease-in-out';
+      strip.style.transform = 'translateX(-' + (index * 260) + 'px)';
     }, 3000);
+
   </script>
 </body>
 </html>
