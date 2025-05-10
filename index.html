@@ -103,7 +103,24 @@
   </style>
 </head>
 <body>
-  <header>
+  
+  <header style="position: relative;">
+    <div style="margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem;">
+      <img src="assets/images/yolo-logo-transparent.png" alt="YOLO Logo" style="height: 50px;">
+      <h1>YOLO BAR & LOUNGE</h1>
+    </div>
+    <div class="dropdown" style="position: absolute; top: 1.5rem; right: 2rem;">
+      <div class="menu-icon">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="dropdown-content">
+        <a href="https://wa.me/97430084430">Reserve a Table</a>
+        <a href="#" onclick="openMenuModal()">Menu</a>
+        <a href="#" onclick="openEventsModal()">Events</a>
+      </div>
+    </div>
+  </header>
+
   <div style="margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem;">
     <img src="assets/images/yolo-logo-transparent.png" alt="YOLO Logo" style="height: 50px;">
     <h1>YOLO BAR & LOUNGE</h1>
@@ -125,6 +142,26 @@
     </div>
   </header>
   <section class="hero">
+  <section class="section">
+    <h2>Featured Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item" onclick="alert('Signature Cocktails:\nEspresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour')">
+        <h3>Signature Cocktails</h3>
+        <p>Crafted with global inspiration and a touch of the unexpected.</p>
+      </div>
+      <div class="menu-item" onclick="alert('Artisan Shots:\nGoldshlager, Sambuca (White/Black), Jose Cuervo Gold, Patron Silver, Brain Damage, Jellyfish, B52, AK 47')">
+        <h3>Artisan Shots</h3>
+        <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: #000; color: white; text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem;">Live DJ – Every Night</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
+    <img src="assets/images/dj-kimo.png" alt="DJ Kimo" style="max-width: 100%; height: auto; border-radius: 12px;" />
+  </section>
+
     <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
     <p>Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
     <a class="button" href="https://wa.me/97430084430">Reserve a Table</a>
