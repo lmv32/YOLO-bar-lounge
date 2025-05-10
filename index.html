@@ -4,45 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YOLO BAR & LOUNGE</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="assets/images/favicon_white_on_black.png" />
-  <meta name="theme-color" content="#1c1c1c" />
   <style>
-    body { margin: 0; font-family: sans-serif; background-color: #fff; color: #111; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; background: #fff; color: #111; }
     header {
       background: #1c1c1c;
-      padding: 1rem 2rem;
       color: white;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      position: relative;
+    }
+    header h1 {
+      margin-left: 1rem;
+      font-size: 1.5rem;
     }
     .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
       position: absolute;
-      right: 0;
-      background-color: #1c1c1c;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0 rgba(0,0,0,0.2);
-      z-index: 1;
-      border-radius: 8px;
-    }
-    .dropdown-content a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      font-weight: bold;
-    }
-    .dropdown-content a:hover {
-      background-color: #333;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
+      top: 1.5rem;
+      right: 2rem;
     }
     .menu-icon {
       width: 30px;
@@ -53,30 +35,62 @@
       cursor: pointer;
     }
     .menu-icon span {
-      display: block;
       height: 4px;
-      width: 100%;
-      background-color: white;
+      background: white;
       border-radius: 2px;
     }
-    .hero {
-      background: linear-gradient(to bottom right, #002c2c, #004d4d);
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #1c1c1c;
+      padding: 0.5rem 0;
+      border-radius: 8px;
+      z-index: 999;
+    }
+    .dropdown-content a {
+      display: block;
       color: white;
-      text-align: center;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    section {
       padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .hero {
+      background: linear-gradient(to bottom right, #003333, #004d4d);
+      color: white;
     }
     .hero img {
       max-width: 100%;
-      height: auto;
-      margin-top: 2rem;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      margin-top: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #fff;
+
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
+    .menu-item {
+      background: #f4f4f4;
+      border: 1px solid #ccc;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 260px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
     .gallery-scroll-container {
       overflow: hidden;
       width: 90%;
@@ -92,8 +106,18 @@
       height: auto;
       border-radius: 12px;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
+    .dj-section {
+      background: #000;
+      color: white;
+    }
+    .dj-section img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+
     footer {
       background: #1c1c1c;
       color: white;
@@ -103,35 +127,10 @@
   </style>
 </head>
 <body>
-  
-  
-<header style="position: relative;">
-  <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
-    <img src="assets/images/yolo-logo-transparent.png" alt="YOLO Logo" style="height: 50px;">
-    <h1 style="margin: 0;">YOLO BAR & LOUNGE</h1>
-  </div>
-  <div class="dropdown" style="position: absolute; top: 1.5rem; right: 2rem;">
-    <div class="menu-icon">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="dropdown-content">
-      <a href="https://wa.me/97430084430">Reserve a Table</a>
-      <a href="#" onclick="openMenuModal()">Menu</a>
-      <a href="#" onclick="openEventsModal()">Events</a>
-    </div>
-  </div>
-</header>
 
-
-  <div style="margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem;">
+  <header>
     <img src="assets/images/yolo-logo-transparent.png" alt="YOLO Logo" style="height: 50px;">
     <h1>YOLO BAR & LOUNGE</h1>
-  </div>
-  <div class="dropdown" style="position: absolute; top: 1.5rem; right: 2rem;">
-    <div style="display: flex; align-items: center;">
-      <img src="assets/images/yolo-logo-transparent.png" alt="YOLO Logo" style="height: 50px; margin-right: 1rem;">
-      <h1>YOLO BAR & LOUNGE</h1>
-    </div>
     <div class="dropdown">
       <div class="menu-icon">
         <span></span><span></span><span></span>
@@ -143,8 +142,14 @@
       </div>
     </div>
   </header>
+
   <section class="hero">
-  <section class="section">
+    <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
+    <p style="margin-top: 1rem;">Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
+    <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Colorful Drinks" />
+  </section>
+
+  <section>
     <h2>Featured Menu</h2>
     <div class="menu-items">
       <div class="menu-item" onclick="alert('Signature Cocktails:\nEspresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour')">
@@ -158,18 +163,13 @@
     </div>
   </section>
 
-  <section class="section" style="background: #000; color: white; text-align: center;">
-    <h2 style="font-size: 2rem; margin-bottom: 1rem;">Live DJ – Every Night</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
-    <img src="assets/images/dj-kimo.png" alt="DJ Kimo" style="max-width: 100%; height: auto; border-radius: 12px;" />
+  <section class="dj-section">
+    <h2>Live DJ – Every Night</h2>
+    <p>Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
+    <img src="assets/images/dj-kimo.png" alt="DJ Kimo" />
   </section>
 
-    <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
-    <p>Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
-    <a class="button" href="https://wa.me/97430084430">Reserve a Table</a>
-    <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Colorful Drinks">
-  </section>
-  <section class="section">
+  <section>
     <h2>Signature Gallery</h2>
     <div class="gallery-scroll-container">
       <div class="gallery-strip" id="galleryStrip">
@@ -180,18 +180,18 @@
       </div>
     </div>
   </section>
+
   <footer>
     <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
-  
-  <section class="section" style="background: #000; color: white; text-align: center;">
-    <h2 style="font-size: 2rem; margin-bottom: 1rem;">Live DJ – Every Night</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
-    <img src="assets/images/dj-kimo.png" alt="DJ Kimo" style="max-width: 100%; height: auto; border-radius: 12px;" />
-  </section>
-
-</footer>
+  </footer>
 
   <script>
+    function openMenuModal() {
+      alert("Menu pop-up placeholder. Embed YOLO_Menu.pdf here.");
+    }
+    function openEventsModal() {
+      alert("Events coming soon. Stay tuned!");
+    }
     const strip = document.getElementById('galleryStrip');
     const items = strip.children.length;
     let index = 0;
