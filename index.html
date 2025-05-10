@@ -137,16 +137,16 @@
       </div>
       
     <div class="dropdown-content">
-        <a href="https://wa.me/97430084430">Reserve a Table</a>
-        <a href="#" onclick="openMenuModal()">Menu</a>
-        <a href="#" onclick="openEventsModal()">Events</a>
+        
+        
+        
         <div style="border-top: 1px solid #444; margin: 0.5rem 0;"></div>
         <span style="padding: 8px 16px; display: block; font-weight: bold;">Social Media</span>
-        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" style="padding-left: 32px;">Instagram</a>
-        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" style="padding-left: 32px;">TikTok</a>
+        
+        
     
-        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">TikTok</a>
+        
+        
         <a href="https://wa.me/97430084430">Reserve a Table</a>
         <a href="#" onclick="openMenuModal()">Menu</a>
         <a href="#" onclick="openEventsModal()">Events</a>
@@ -163,11 +163,33 @@
   <section>
     <h2>Featured Menu</h2>
     <div class="menu-items">
-      <div class="menu-item" onclick="showModal('Signature Cocktails', ['Espresso Martini','Mango Margarita','Godfather','Ginger Gin Fizz','Long Island Champagne','Lemongrass Daiquiri','Negroni','Whiskey Sour'])"">
+      <div class="menu-item" onclick="showModal('Signature Cocktails', [
+      {name:'Spritzer', desc:'Aperol, Prosecco, Soda Water'},
+      {name:'Americano', desc:'Campari, Sweet Vermouth, Soda Water'},
+      {name:'Negroni', desc:'Gin, Campari, Sweet Vermouth, Bitters'},
+      {name:'Dry Martini', desc:'Gin, Dry Vermouth'},
+      {name:'Vodka Martini', desc:'Vodka, Dry Vermouth'},
+      {name:'Campari Shakerato', desc:'Campari, Orange Juice, Lemon Juice'},
+      {name:'Kir', desc:'White Wine, Crème de Cassis'},
+      {name:'Espresso Martini', desc:'Vodka, Kahlua, Fresh Espresso'},
+      {name:'Hankey Pankey', desc:'Vodka, Sweet Vermouth, Fernet Branca'},
+      {name:'God Father', desc:'Bourbon Whiskey, Amaretto'},
+      {name:'God Mother', desc:'Vodka, Amaretto'},
+      {name:'Mint Julep', desc:'Bourbon, Mint, Sugar and Bitters'}
+    ])"">
         <h3>Signature Cocktails</h3>
         <p>Crafted with global inspiration and a touch of the unexpected.</p>
       </div>
-      <div class="menu-item" onclick="showModal('Artisan Shots', ['Goldshlager','Sambuca (White/Black)','Jose Cuervo Gold','Patron Silver','Brain Damage','Jellyfish','B52','AK 47'])"">
+      <div class="menu-item" onclick="showModal('Artisan Shots', [
+      {name:'Goldshlager', desc:'Cinnamon liqueur with gold flakes'},
+      {name:'Sambuca (White/Black)', desc:'Anise-flavored liqueur'},
+      {name:'Jose Cuervo Gold', desc:'Premium tequila'},
+      {name:'Patron Silver', desc:'High-quality silver tequila'},
+      {name:'Brain Damage', desc:'Baileys, Peach Schnapps, Grenadine'},
+      {name:'Jellyfish', desc:'Sambuca, Baileys, Blue Curaçao, Grenadine'},
+      {name:'B52', desc:'Kahlua, Baileys, Grand Marnier'},
+      {name:'AK 47', desc:'Vodka, Whiskey, Tabasco'}
+    ])"">
         <h3>Artisan Shots</h3>
         <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
       </div>
@@ -195,8 +217,8 @@
   <footer>
     <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
     <div style="margin-top: 1rem;">
-      <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" style="color:white; text-decoration:none; margin: 0 1rem;">Instagram</a>
-      <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" style="color:white; text-decoration:none; margin: 0 1rem;">TikTok</a>
+      
+      
     </div>
   </footer>
 
@@ -239,6 +261,28 @@ function showModal(title, items) {
   document.getElementById('drinkModal').style.display = 'block';
 }
 </script>
+
+<div id="drinkModal" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%);
+background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:2rem; z-index:9999; max-width:420px;"
+onmouseleave="document.getElementById('drinkModal').style.display='none'">
+  <div id="modalTitle" style="font-weight:bold; font-size:1.4rem; margin-bottom:1rem;"></div>
+  <ul id="modalList" style="text-align:left; padding-left:1rem; line-height:1.6;"></ul>
+</div>
+
+<script>
+function showModal(title, items) {
+  document.getElementById('modalTitle').textContent = title;
+  const ul = document.getElementById('modalList');
+  ul.innerHTML = '';
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = '<strong>' + item.name + '</strong><br><span style=\'font-size:0.9rem;color:#444\'>' + item.desc + '</span>';
+    ul.appendChild(li);
+  });
+  document.getElementById('drinkModal').style.display = 'block';
+}
+</script>
 </body>
 </html>
+
 
