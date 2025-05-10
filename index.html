@@ -9,6 +9,68 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#1c1c1c" />
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #1c1c1c;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 8px;
+    }
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+    }
+    .dropdown-content a:hover {
+      background-color: #333;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .menu-icon {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      cursor: pointer;
+    }
+    .menu-icon span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background-color: white;
+      border-radius: 2px;
+    }
+    .gallery-slider {
+      width: 220px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .gallery-slider img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      transition: transform 0.8s ease-in-out;
+    }
+    footer {
+      background: #1c1c1c;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,7 +80,9 @@
     </div>
     <div class="dropdown">
       <div class="menu-icon">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       <div class="dropdown-content">
         <a href="https://wa.me/97430084430?text=Hi%2C%20I'd%20like%20to%20reserve%20a%20table%20at%20YOLO%20Bar%20%26%20Lounge">Reserve a Table</a>
