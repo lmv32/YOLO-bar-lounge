@@ -196,8 +196,17 @@
     const items = strip.children.length;
     let index = 0;
     setInterval(() => {
-      index = (index + 1) % items;
-      strip.style.transform = 'translateX(-' + (index * 260) + 'px)';
+      index++;
+      if (index >= items) {
+        index = 0;
+        strip.style.transition = 'none';
+        strip.style.transform = 'translateX(0px)';
+        setTimeout(() => {
+          strip.style.transition = 'transform 1s ease-in-out';
+        }, 50);
+      } else {
+        strip.style.transform = 'translateX(-' + (index * 260) + 'px)';
+      }
     }, 3000);
   </script>
 </body>
