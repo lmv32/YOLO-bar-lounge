@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,40 +13,52 @@
       color: white;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      position: relative;
     }
     header h1 {
+      margin-left: 1rem;
       font-size: 1.5rem;
     }
+    .dropdown {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+    }
     .menu-icon {
+      width: 30px;
+      height: 30px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 20px;
+      justify-content: space-around;
       cursor: pointer;
     }
     .menu-icon span {
-      height: 3px;
-      width: 25px;
+      height: 4px;
       background: white;
       border-radius: 2px;
     }
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 60px;
-      right: 2rem;
+      right: 0;
       background: #1c1c1c;
-      border-radius: 6px;
+      padding: 0.5rem 0;
+      border-radius: 8px;
       z-index: 999;
     }
     .dropdown-content a {
-      color: white;
-      padding: 10px 16px;
       display: block;
+      color: white;
+      padding: 0.75rem 1rem;
       text-decoration: none;
+      font-weight: bold;
     }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
     section {
       padding: 3rem 1.5rem;
       text-align: center;
@@ -60,173 +71,167 @@
       max-width: 100%;
       border-radius: 12px;
       margin-top: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
+
     .menu-items {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
+      flex-wrap: wrap;
       margin-top: 2rem;
     }
     .menu-item {
       background: #f4f4f4;
-      border-radius: 12px;
+      border: 1px solid #ccc;
       padding: 1.5rem;
+      border-radius: 10px;
       width: 260px;
-      cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
+
+    .gallery-scroll-container {
+      overflow: hidden;
+      width: 90%;
+      margin: 2rem auto 0;
+    }
+    .gallery-strip {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 1s ease-in-out;
+    }
+    .gallery-strip img {
+      width: 240px;
+      height: auto;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
     .dj-section {
       background: #000;
       color: white;
     }
     .dj-section img {
       max-width: 100%;
+      border-radius: 12px;
       margin-top: 1rem;
-      border-radius: 12px;
     }
-    .gallery-scroll-container {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-    }
-    .gallery-strip {
-      display: flex;
-      gap: 1.5rem;
-      width: max-content;
-    }
-    .gallery-strip img {
-      width: 240px;
-      border-radius: 12px;
-    }
+
     footer {
       background: #1c1c1c;
       color: white;
       padding: 2rem;
       text-align: center;
     }
-  </style>
+  
+#drinkModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  z-index: 10000;
+  max-width: 400px;
+  text-align: left;
+}
+#drinkModal ul {
+  padding-left: 1rem;
+}
+#drinkModal ul li {
+  margin-bottom: 1rem;
+  list-style: disc;
+}
+#modalOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+</style>
 </head>
 <body>
 
-<header>
-  <img src="assets/images/yolo-logo-top-left.png" alt="YOLO Logo" style="height: 50px;">
-  <h1>YOLO BAR & LOUNGE</h1>
-  <div class="dropdown">
-    <div class="menu-icon" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="dropdown-content" id="dropdown">
-      <a href="https://wa.me/97430084430">Reserve a Table</a>
-      <a href="#" onclick="openMenuModal()">Menu</a>
-      <a href="#" onclick="openEventsModal()">Events</a>
-      <a href="#" onclick="toggleSocial()">Social Media</a>
-      <div id="socialLinks" style="display: none;">
-        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">TikTok</a>
+  <header>
+    <img src="assets/images/yolo-logo-white-transparent.png" alt="YOLO Logo" style="height: 50px;">
+    <h1>YOLO BAR & LOUNGE</h1>
+    <div class="dropdown">
+      <div class="menu-icon">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="dropdown-content">
+        <a href="https://wa.me/97430084430">Reserve a Table</a>
+        <a href="#" onclick="openMenuModal()">Menu</a>
+        <a href="#" onclick="openEventsModal()">Events</a>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
-  <p>Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
-  <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Hero Image">
-</section>
+  <section class="hero">
+    <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
+    <p style="margin-top: 1rem;">Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
+    <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Colorful Drinks" />
+  </section>
 
-<section>
-  <h2>Featured Menu</h2>
-  <div class="menu-items">
-    <div class="menu-item" onclick="showModal('Signature Cocktails', [{name:'Espresso Martini',desc:'Vodka, Kahlua, Espresso'},{name:'Godfather',desc:'Scotch, Amaretto'}])">
-      <h3>Signature Cocktails</h3>
+  <section>
+    <h2>Featured Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item" onclick="alert('Signature Cocktails:\nEspresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour')">
+        <h3>Signature Cocktails</h3><p style="font-size: 0.9rem; margin-top: 0.5rem;">Crafted with global inspiration and a touch of the unexpected.</p>
+        <p>Crafted with global inspiration and a touch of the unexpected.</p>
+      </div>
+      <div class="menu-item" onclick="alert('Artisan Shots:\nGoldshlager, Sambuca (White/Black), Jose Cuervo Gold, Patron Silver, Brain Damage, Jellyfish, B52, AK 47')">
+        <h3>Artisan Shots</h3><p style="font-size: 0.9rem; margin-top: 0.5rem;">Handcrafted shots inspired by distant lands and bold flavors.</p>
+        <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
+      </div>
     </div>
-    <div class="menu-item" onclick="showModal('Artisan Shots', [{name:'B52',desc:'Kahlua, Baileys, Grand Marnier'},{name:'Jellyfish',desc:'Sambuca, Baileys, Curaçao'}])">
-      <h3>Artisan Shots</h3>
+  </section>
+
+  <section class="dj-section">
+    <h2>Live DJ – Every Night</h2>
+    <p>Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
+    <img src="assets/images/dj-kimo.png" alt="DJ Kimo" />
+  </section>
+
+  <section>
+    <h2>Signature Gallery</h2>
+    <div class="gallery-scroll-container">
+      <div class="gallery-strip" id="galleryStrip">
+        <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" alt="Gallery 1" />
+        <img src="assets/images/Fish Bowl.png" alt="Gallery 2" />
+        <img src="assets/images/Torch Glass 2.png" alt="Gallery 3" />
+        <img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" alt="Gallery 4" />
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="dj-section">
-  <h2>Live DJ – Every Night</h2>
-  <p>Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
-  <img src="assets/images/dj-kimo.png" alt="DJ Kimo">
-</section>
+  <footer>
+    <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
+  </footer>
 
-<section>
-  <h2>Signature Gallery</h2>
-  <div class="gallery-scroll-container">
-    <div class="gallery-strip" id="galleryStrip">
-      <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" />
-      <img src="assets/images/Fish Bowl.png" />
-      <img src="assets/images/Torch Glass 2.png" />
-      <img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" />
-      <img src="assets/images/smoked-drink.png" />
-      <!-- repeat for looped scroll -->
-      <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" />
-      <img src="assets/images/Fish Bowl.png" />
-      <img src="assets/images/Torch Glass 2.png" />
-      <img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" />
-      <img src="assets/images/smoked-drink.png" />
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
-  <div style="margin-top: 1rem;">
-    <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">
-      <img src="assets/images/instagram.png" alt="Instagram" style="height: 24px;">
-    </a>
-    <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">
-      <img src="assets/images/tiktok.png" alt="TikTok" style="height: 24px;">
-    </a>
-  </div>
-</footer>
-
-<!-- Modals & JS -->
-<div id="drinkModal" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%);
-background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:2rem; z-index:9999; max-width:400px;">
-  <div id="modalTitle" style="font-weight:bold; font-size:1.2rem; margin-bottom:1rem;"></div>
-  <ul id="modalList" style="text-align:left; padding-left:1rem;"></ul>
-</div>
-
-<script>
-function toggleMenu() {
-  const dropdown = document.getElementById("dropdown");
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-}
-function toggleSocial() {
-  const links = document.getElementById("socialLinks");
-  links.style.display = links.style.display === "block" ? "none" : "block";
-}
-function openMenuModal() {
-  window.open("assets/YOLO_Menu.pdf", "_blank");
-}
-function openEventsModal() {
-  alert("Events coming soon. Stay tuned!");
-}
-function showModal(title, items) {
-  document.getElementById('modalTitle').textContent = title;
-  const ul = document.getElementById('modalList');
-  ul.innerHTML = '';
-  items.forEach(item => {
-    const li = document.createElement('li');
-    li.innerHTML = '<strong>' + item.name + '</strong><br><span style="font-size:0.9rem;color:#444">' + item.desc + '</span>';
-    ul.appendChild(li);
-  });
-  document.getElementById('drinkModal').style.display = 'block';
-}
-const strip = document.getElementById('galleryStrip');
-let scrollX = 0;
-const step = 1;
-function loopScroll() {
-  scrollX += step;
-  if (scrollX >= strip.scrollWidth / 2) scrollX = 0;
-  strip.style.transform = 'translateX(-' + scrollX + 'px)';
-  requestAnimationFrame(loopScroll);
-}
-requestAnimationFrame(loopScroll);
-</script>
+  <script>
+    function openMenuModal() {
+      alert("Menu pop-up placeholder. Embed YOLO_Menu.pdf here.");
+    }
+    function openEventsModal() {
+      alert("Events coming soon. Stay tuned!");
+    }
+    const strip = document.getElementById('galleryStrip');
+    const items = strip.children.length;
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % items;
+      strip.style.transform = 'translateX(-' + (index * 260) + 'px)';
+    }, 3000);
+  </script>
 </body>
 </html>
