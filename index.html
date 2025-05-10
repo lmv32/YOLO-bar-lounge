@@ -135,7 +135,16 @@
       <div class="menu-icon">
         <span></span><span></span><span></span>
       </div>
-      <div class="dropdown-content">
+      
+    <div class="dropdown-content">
+        <a href="https://wa.me/97430084430">Reserve a Table</a>
+        <a href="#" onclick="openMenuModal()">Menu</a>
+        <a href="#" onclick="openEventsModal()">Events</a>
+        <div style="border-top: 1px solid #444; margin: 0.5rem 0;"></div>
+        <span style="padding: 8px 16px; display: block; font-weight: bold;">Social Media</span>
+        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" style="padding-left: 32px;">Instagram</a>
+        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" style="padding-left: 32px;">TikTok</a>
+    
         <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">Instagram</a>
         <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">TikTok</a>
         <a href="https://wa.me/97430084430">Reserve a Table</a>
@@ -154,11 +163,11 @@
   <section>
     <h2>Featured Menu</h2>
     <div class="menu-items">
-      <div class="menu-item" onclick="alert("Signature Cocktails:\n\n• Espresso Martini\n• Mango Margarita\n• Godfather\n• Ginger Gin Fizz\n• Long Island Champagne\n• Lemongrass Daiquiri\n• Negroni\n• Whiskey Sour")">
+      <div class="menu-item" onclick="showModal('Signature Cocktails', ['Espresso Martini','Mango Margarita','Godfather','Ginger Gin Fizz','Long Island Champagne','Lemongrass Daiquiri','Negroni','Whiskey Sour'])"">
         <h3>Signature Cocktails</h3>
         <p>Crafted with global inspiration and a touch of the unexpected.</p>
       </div>
-      <div class="menu-item" onclick="alert("Artisan Shots:\n\n• Goldshlager\n• Sambuca (White/Black)\n• Jose Cuervo Gold\n• Patron Silver\n• Brain Damage\n• Jellyfish\n• B52\n• AK 47")">
+      <div class="menu-item" onclick="showModal('Artisan Shots', ['Goldshlager','Sambuca (White/Black)','Jose Cuervo Gold','Patron Silver','Brain Damage','Jellyfish','B52','AK 47'])"">
         <h3>Artisan Shots</h3>
         <p>Handcrafted shots inspired by distant lands and bold flavors.</p>
       </div>
@@ -173,7 +182,7 @@
 
   <section>
     <h2>Signature Gallery</h2>
-    <div class="gallery-scroll-container">
+    <div class="gallery-scroll-container" style="display: flex; justify-content: center;">
       <div class="gallery-strip" id="galleryStrip">
         <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" alt="Gallery 1" />
         <img src="assets/images/Fish Bowl.png" alt="Gallery 2" />
@@ -209,5 +218,27 @@
     }, 3000);
 
   </script>
+
+<div id="drinkModal" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%);
+background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:2rem; z-index:9999; max-width:400px;">
+  <div id="modalTitle" style="font-weight:bold; font-size:1.2rem; margin-bottom:1rem;"></div>
+  <ul id="modalList" style="text-align:left; padding-left:1rem;"></ul>
+  <button onclick="document.getElementById('drinkModal').style.display='none'" style="margin-top:1rem; background:#1c1c1c; color:white; padding:0.5rem 1rem; border:none; border-radius:4px;">Close</button>
+</div>
+
+<script>
+function showModal(title, items) {
+  document.getElementById('modalTitle').textContent = title;
+  const ul = document.getElementById('modalList');
+  ul.innerHTML = '';
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    ul.appendChild(li);
+  });
+  document.getElementById('drinkModal').style.display = 'block';
+}
+</script>
 </body>
 </html>
+
