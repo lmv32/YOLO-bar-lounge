@@ -135,78 +135,111 @@
   <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Hero Image">
 </section>
 
-<section id="menu" class="py-12 px-4 md:px-12 lg:px-24 bg-white text-black max-w-6xl mx-auto">
-  <h2 class="text-4xl font-bold mb-8">Full Drinks Menu</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div>
-      <h3 class="text-2xl font-semibold mb-4">Vodka</h3>
-      <ul class="space-y-2">
-        <li>Stolichnaya Red 1L – QR 35 / Bottle QR 700</li>
-        <li>Absolute Blue 1L – QR 40 / Bottle QR 800</li>
-        <li>Ketel One 1L – QR 60 / Bottle QR 1200</li>
-        <li>Grey Goose 1L – QR 70 / Bottle QR 1300</li>
-        <li>Belvedere 70cl – QR 70 / Bottle QR 1200</li>
-        <li>Ciroc 75cl – QR 70 / Bottle QR 1200</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Gin</h3>
-      <ul class="space-y-2">
-        <li>Beefeater 1L – QR 40 / Bottle QR 800</li>
-        <li>Tanqueray 1L – QR 50 / Bottle QR 1000</li>
-        <li>Tanqueray Ten 1L – QR 70 / Bottle QR 1300</li>
-        <li>Hendricks 70cl – QR 70 / Bottle QR 1300</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Tequila</h3>
-      <ul class="space-y-2">
-        <li>Jose Cuervo Silver – QR 40 / Bottle QR 800</li>
-        <li>Jose Cuervo Gold – QR 40 / Bottle QR 800</li>
-        <li>Jose Cuervo 1800 Anejo – QR 55 / Bottle QR 1000</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Rum</h3>
-      <ul class="space-y-2">
-        <li>Bacardi Carta Blanca – QR 40 / Bottle QR 800</li>
-        <li>Bacardi Black – QR 40 / Bottle QR 800</li>
-        <li>Bacardi Oakheart – QR 50 / Bottle QR 850</li>
-        <li>Captain Morgan Spiced – QR 45 / Bottle QR 850</li>
-        <li>Havana Club 7 Years – QR 45 / Bottle QR 900</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Cognac & Liqueur</h3>
-      <ul class="space-y-2">
-        <li>Hennessy VS – QR 40 / Bottle QR 800</li>
-        <li>Hennessy VSOP – QR 40 / Bottle QR 800</li>
-        <li>Hennessy XO – QR 50 / Bottle QR 850</li>
-        <li>Jägermeister – QR 65 / Bottle QR 1200</li>
-        <li>Amaretto DiSaronno – QR 85 / Bottle QR 1550</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="text-2xl font-semibold mb-4">Whiskey</h3>
-      <ul class="space-y-2">
-        <li>JW Black Label – QR 65 / Bottle QR 1200</li>
-        <li>JW Double Black – QR 70 / Bottle QR 1400</li>
-        <li>Chivas 12 Years – QR 65 / Bottle QR 1250</li>
-        <li>Chivas 18 Years – QR 85 / Bottle QR 1550</li>
-        <li>Glenmorangie 10 Years – QR 60 / Bottle QR 1300</li>
-        <li>Glenfiddich 12 Years – QR 60 / Bottle QR 1100</li>
-        <li>Jack Daniels – QR 50 / Bottle QR 950</li>
-        <li>Gentleman Jack – QR 60 / Bottle QR 1200</li>
-        <li>Jameson – QR 55 / Bottle QR 1100</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Beer</h3>
-      <ul class="space-y-2">
-        <li>Becks, Stella, Corona, Heineken – QR 40</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Shots</h3>
-      <ul class="space-y-2">
-        <li>Goldschlager, Sambuca, Jose Cuervo, Patron – QR 40</li>
-        <li>B52, AK47, Jellyfish – QR 40</li>
-      </ul>
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Cocktails</h3>
-      <ul class="space-y-2">
-        <li>Espresso Martini, Mango Margarita, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Negroni, Whiskey Sour – QR 65</li>
-      </ul>
+<!-- Modal trigger remains the same -->
+
+<!-- Modal content -->
+<div id="menuModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-70">
+  <div class="relative mx-auto my-12 w-full max-w-5xl bg-white p-8 rounded-xl overflow-y-auto max-h-[90vh]">
+    <button onclick="document.getElementById('menuModal').classList.add('hidden')" class="absolute top-4 right-4 text-black text-2xl font-bold">&times;</button>
+    <h2 class="text-3xl font-bold mb-6">YOLO Full Menu</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm leading-relaxed">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Vodka</h3>
+        Stolichnaya Red 1L – 35 / Bottle 700<br>
+        Absolute Blue 1L – 40 / Bottle 800<br>
+        Ketel One 1L – 60 / Bottle 1200<br>
+        Grey Goose 1L – 70 / Bottle 1300<br>
+        Belvedere 70cl – 70 / Bottle 1200<br>
+        Ciroc 75cl – 70 / Bottle 1200<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Gin</h3>
+        Beefeater 1L – 40 / Bottle 800<br>
+        Tanqueray 1L – 50 / Bottle 1000<br>
+        Tanqueray Ten 1L – 70 / Bottle 1300<br>
+        Hendricks 70cl – 70 / Bottle 1300<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Tequila</h3>
+        Jose Cuervo Silver – 40 / Bottle 800<br>
+        Jose Cuervo Gold – 40 / Bottle 800<br>
+        Jose Cuervo 1800 Anejo – 55 / Bottle 1000<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Rum</h3>
+        Bacardi Carta Blanca – 40 / Bottle 800<br>
+        Bacardi Black – 40 / Bottle 800<br>
+        Bacardi Oakheart – 50 / Bottle 850<br>
+        Captain Morgan Spiced – 45 / Bottle 850<br>
+        Havana Club 7 Years – 45 / Bottle 900<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Whiskey</h3>
+        JW Black Label – 65 / Bottle 1200<br>
+        JW Double Black – 70 / Bottle 1400<br>
+        Chivas 12 Years – 65 / Bottle 1250<br>
+        Chivas 18 Years – 85 / Bottle 1550<br>
+        Glenmorangie 10 Years – 60 / Bottle 1300<br>
+        Glenmorangie Lasanta – 75 / Bottle 1400<br>
+        Glenfiddich 12 Years – 60 / Bottle 1100<br>
+        Glenfiddich 15 Years – 75 / Bottle 1300<br>
+        Jim Beam White – 45 / Bottle 900<br>
+        Jack Daniels – 50 / Bottle 950<br>
+        Gentleman Jack – 60 / Bottle 1200<br>
+        JD Single Barrel – 70 / Bottle 1350<br>
+        Jameson – 55 / Bottle 1100<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Cognac</h3>
+        Hennessy VS – 40 / Bottle 800<br>
+        Hennessy VSOP – 40 / Bottle 800<br>
+        Hennessy XO – 50 / Bottle 850<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Liqueur</h3>
+        Sambuca White – 65 / Bottle 1200<br>
+        Sambuca Black – 70 / Bottle 1400<br>
+        Jägermeister – 65 / Bottle 1250<br>
+        Amaretto DiSaronno – 85 / Bottle 1550<br>
+        Baileys – 60 / Bottle 1300<br>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Beer</h3>
+        Becks, Stella, Corona, Heineken – 40<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Champagne</h3>
+        Moët & Chandon Brut – 1500<br>
+        Moët & Chandon Rosé – 1700<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Wine</h3>
+        <strong>Red:</strong> Table Mountain Merlot, Miguel Torres Sangre, Chateau Ksara Red – 45 / Bottle 220-500<br>
+        <strong>White:</strong> Table Mountain Sauvignon Blanc, Bouchard Aîné & Fils, Danzante Pinot Grigio – 45 / Bottle 220-500<br>
+        <strong>Rosé:</strong> Rosé Danjou, Rosé de Ksara – 45 / Bottle 220<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Cocktails</h3>
+        Espresso Martini, Godfather, Ginger Gin Fizz, Long Island Champagne, Lemongrass Daiquiri, Margarita, Negroni, Whiskey Sour and many more – 65 each<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Shots</h3>
+        Goldschlager, Sambuca, Jose Cuervo, Patron Silver, Reposado, Anejo, B52, Jellyfish – 40 each<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Non-Alcoholic</h3>
+        Virgin Caipirova, Fruit Cocktails, Virgin Mary, Apple Fizz, Petit Punch, Tropical Twist, Grapefruit Fizz, The Journalist – 40 each<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Soft Drinks</h3>
+        Water (small) – 20<br>
+        Water (large) – 25<br>
+        Red Bull – 25<br>
+        Coca Cola – 15<br>
+        Sparkling Water (small) – 25<br>
+        Sparkling Water (large) – 30<br>
+        Espresso, Tea, Juices – 20 each<br><br>
+
+        <h3 class="text-xl font-semibold mb-2">Food</h3>
+        <strong>Salads:</strong> Caesar (Chicken/Shrimp) – 55, Rocca – 45<br>
+        <strong>Sharing:</strong> Cheese Platter – 90, Mix Bar Platter – 120<br>
+        <strong>Sandwiches:</strong> Beef Panini – 55, Chicken Spinach Roll – 45, Smoked Salmon – 55<br>
+        <strong>Main Course:</strong> Chicken Penne Pasta – 45, Fish & Chips – 55, Mini Burger (2 sliders) – 55, Lamb Chops – 90, French Fries – 25, with Cheese – 35<br>
+        <strong>Desserts:</strong> Cheesecake, Red Velvet, Ice Cream, Tiramisu – 30, Fruit Platter – 70<br>
+      </div>
     </div>
   </div>
-</section>
+</div>
+
 
 <section class="dj-section">
   <h2>Live DJ – Every Night</h2>
