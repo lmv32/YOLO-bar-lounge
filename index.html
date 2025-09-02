@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YOLO BAR & LOUNGE</title>
   <link rel="icon" type="image/png" href="assets/images/favicon_white_on_black.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: sans-serif; background: #fff; color: #111; }
@@ -95,20 +96,21 @@
       margin-top: 1rem;
       border-radius: 12px;
     }
-    .gallery-scroll-container {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-    }
-    .gallery-strip {
-      display: flex;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
-      width: max-content;
+      margin-top: 2rem;
     }
-    .gallery-strip img {
-      width: 240px;
+    .gallery-grid a img {
+      width: 100%;
       border-radius: 12px;
+      transition: transform 0.3s ease;
     }
+    .gallery-grid a img:hover {
+      transform: scale(1.05);
+    }
+
     footer {
       background: #1c1c1c;
       color: white;
@@ -119,22 +121,16 @@
 </head>
 <body>
 
-<!-- ✅ Top Navigation -->
 <nav>
-  <!-- Left: Logo -->
   <div>
     <img src="assets/images/yolo-logo-top-left.png" alt="YOLO Logo" />
   </div>
-
-  <!-- Center: Nav Links -->
   <ul>
     <li><a href="#reservation">Reservation</a></li>
     <li><a href="#music">DJ / Live Music</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-
-  <!-- Right: Social Icons -->
   <div style="display: flex; gap: 1em; align-items: center;">
     <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">
       <img src="assets/images/instagram.png" alt="Instagram" style="height: 24px;">
@@ -145,7 +141,6 @@
   </div>
 </nav>
 
-<!-- 🔥 Animated Gradient Hero -->
 <section class="hero" id="reservation">
   <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
   <p>Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
@@ -174,14 +169,12 @@
 
 <section id="gallery">
   <h2>Signature Gallery</h2>
-  <div class="gallery-scroll-container">
-    <div class="gallery-strip" id="galleryStrip">
-      <img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" />
-      <img src="assets/images/Fish Bowl.png" />
-      <img src="assets/images/Torch Glass 2.png" />
-      <img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" />
-      <img src="assets/images/smoked-drink.png" />
-    </div>
+  <div class="gallery-grid">
+    <a href="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" data-lightbox="yolo-gallery"><img src="assets/images/A_photograph_showcases_three_colorful_cocktails_in.png" alt="Cocktail 1" /></a>
+    <a href="assets/images/Fish Bowl.png" data-lightbox="yolo-gallery"><img src="assets/images/Fish Bowl.png" alt="Fish Bowl" /></a>
+    <a href="assets/images/Torch Glass 2.png" data-lightbox="yolo-gallery"><img src="assets/images/Torch Glass 2.png" alt="Torch Glass" /></a>
+    <a href="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" data-lightbox="yolo-gallery"><img src="assets/images/A_digital_photograph_showcases_a_trio_of_colorful_.png" alt="Cocktail Trio" /></a>
+    <a href="assets/images/smoked-drink.png" data-lightbox="yolo-gallery"><img src="assets/images/smoked-drink.png" alt="Smoked Drink" /></a>
   </div>
 </section>
 
@@ -197,19 +190,20 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <script>
 const strip = document.getElementById('galleryStrip');
-let scrollX = 0;
-const step = 1;
-function loopScroll() {
-  if (strip) {
+if (strip) {
+  let scrollX = 0;
+  const step = 1;
+  function loopScroll() {
     scrollX += step;
     if (scrollX >= strip.scrollWidth / 2) scrollX = 0;
     strip.style.transform = 'translateX(-' + scrollX + 'px)';
+    requestAnimationFrame(loopScroll);
   }
   requestAnimationFrame(loopScroll);
 }
-requestAnimationFrame(loopScroll);
 </script>
 
 </body>
