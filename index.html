@@ -117,6 +117,58 @@
       padding: 2rem;
       text-align: center;
     }
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  text-align: left;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+.modal-content label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.modal-content input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.modal-content button {
+  margin-top: 1.5rem;
+  background-color: #b06fff;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}
   </style>
 </head>
 <body>
@@ -127,7 +179,7 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   </div>
   <ul>
-    <li><a href="#reservation">Reservation</a></li>
+    <li><a onclick="openReservationModal()">Reservation</a></li>
     <li><a href="#music" onclick="scrollToSection(event, 'music')">DJ / Live Music</a></li>
     <li><a href="#gallery" onclick="scrollToSection(event, 'gallery')">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -141,6 +193,26 @@
     </a>
   </div>
 </nav>
+  <!-- 📆 Reservation Modal -->
+<div id="reservationModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeReservationModal()">&times;</span>
+    <h3 style="margin-bottom: 1rem;">Reserve Your Table</h3>
+    <form id="reservationForm" onsubmit="sendWhatsAppReservation(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" required />
+      <label for="date">Date</label>
+      <input type="date" id="date" required />
+      <label for="time">Time</label>
+      <input type="time" id="time" required />
+      <label for="guests">Guests</label>
+      <input type="number" id="guests" min="1" required />
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" required />
+      <button type="submit">Reserve via WhatsApp</button>
+    </form>
+  </div>
+</div>
 
 <section class="hero" id="reservation">
   <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
@@ -209,6 +281,25 @@ if (strip) {
   event.preventDefault();
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+  function openReservationModal() {
+  document.getElementById("reservationModal").style.display = "block";
+}
+function closeReservationModal() {
+  document.getElementById("reservationModal").style.display = "none";
+}
+function sendWhatsAppReservation(event) {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const guests = document.getElementById("guests").value;
+  const phone = document.getElementById("phone").value;
+
+  const message = `*YOLO Reservation Request*%0A👤 Name: ${name}%0A📅 Date: ${date}%0A⏰ Time: ${time}%0A👥 Guests: ${guests}%0A📞 Phone: ${phone}`;
+  const whatsappURL = `https://wa.me/97430084430?text=${message}`;
+
+  window.open(whatsappURL, '_blank');
 }
 </script>
 
