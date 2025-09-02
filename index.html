@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,45 +8,37 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: sans-serif; background: #fff; color: #111; }
-    header {
-      background: #1c1c1c;
-      color: white;
-      padding: 1rem 2rem;
+
+    /* New nav styles */
+    nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-    header h1 {
-      font-size: 1.5rem;
-    }
-    .menu-icon {
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      height: 20px;
-      cursor: pointer;
+      padding: 1em 2em;
+      background-color: #fff;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(to right, #f00, #00ffff);
+      border-image-slice: 1;
     }
-    .menu-icon span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      border-radius: 2px;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2em;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 1em;
+      color: #333;
     }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 60px;
-      right: 2rem;
-      background: #1c1c1c;
-      border-radius: 6px;
-      z-index: 999;
-    }
-    .dropdown-content a {
-      color: white;
-      padding: 10px 16px;
-      display: block;
+    nav ul li a {
       text-decoration: none;
+      color: inherit;
     }
+    nav img {
+      height: 40px;
+    }
+
     section {
       padding: 3rem 1.5rem;
       text-align: center;
@@ -109,27 +100,30 @@
 </head>
 <body>
 
-<header>
-  <img src="assets/images/yolo-logo-top-left.png" style="height: 48px;" alt="YOLO Logo">
-  <h1>YOLO BAR & LOUNGE</h1>
-  <div class="dropdown">
-    <div class="menu-icon" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="dropdown-content" id="dropdown">
-      <a href="https://wa.me/97430084430">Reserve a Table</a>
-      <a href="assets/menu/YOLO_Menu.pdf" target="_blank">Menu (PDF)</a>
-      <a href="#" onclick="openEventsModal()">Events</a>
-      <a href="#" onclick="toggleSocial()">Social Media</a>
-      <div id="socialLinks" style="display: none;">
-        <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">TikTok</a>
-      </div>
-    </div>
+<!-- NEW Coca-Cola-style Navigation Header -->
+<nav>
+  <!-- Left: Logo -->
+  <div>
+    <img src="assets/images/yolo-logo-top-left.png" alt="YOLO Logo" />
   </div>
-</header>
 
-<section class="hero">
+  <!-- Center: Nav Links -->
+  <ul>
+    <li><a href="#reservation">Reservation</a></li>
+    <li><a href="#music">DJ / Live Music</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <!-- Right: Icons -->
+  <div style="display: flex; gap: 1em; align-items: center;">
+    <img src="assets/icons/icon-search.svg" alt="Search" style="height: 20px;" />
+    <img src="assets/icons/icon-globe.svg" alt="Language" style="height: 20px;" />
+    <img src="assets/icons/icon-accessibility.svg" alt="Accessibility" style="height: 20px;" />
+  </div>
+</nav>
+
+<section class="hero" id="reservation">
   <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
   <p>Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
   <img src="assets/images/yolo-bar-lounge-cover-image.png" alt="Hero Image">
@@ -149,13 +143,13 @@
   </div>
 </section>
 
-<section class="dj-section">
+<section class="dj-section" id="music">
   <h2>Live DJ – Every Night</h2>
   <p>Come feel the vibes with DJ Kimo, live every night at YOLO.</p>
   <img src="assets/images/A_high-resolution_digital_photograph_captures_a_DJ.png" alt="DJ with Blurred Face">
 </section>
 
-<section>
+<section id="gallery">
   <h2>Signature Gallery</h2>
   <div class="gallery-scroll-container">
     <div class="gallery-strip" id="galleryStrip">
@@ -168,7 +162,7 @@
   </div>
 </section>
 
-<footer>
+<footer id="contact">
   <p>&copy; 2025 YOLO BAR & LOUNGE — Sip Different. Live Loud.</p>
   <div style="margin-top: 1rem;">
     <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">
@@ -181,18 +175,6 @@
 </footer>
 
 <script>
-function toggleMenu() {
-  const dropdown = document.getElementById("dropdown");
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-}
-function toggleSocial() {
-  const links = document.getElementById("socialLinks");
-  links.style.display = links.style.display === "block" ? "none" : "block";
-}
-function openEventsModal() {
-  alert("Events coming soon. Stay tuned!");
-}
-
 const strip = document.getElementById('galleryStrip');
 let scrollX = 0;
 const step = 1;
