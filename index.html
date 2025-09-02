@@ -9,7 +9,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: sans-serif; background: #fff; color: #111; }
 
-    /* New nav styles */
     nav {
       display: flex;
       align-items: center;
@@ -17,7 +16,7 @@
       padding: 1em 2em;
       background-color: #fff;
       border-bottom: 2px solid transparent;
-      border-image: linear-gradient(to right, #f00, #00ffff);
+      border-image: linear-gradient(to right, #40e0d0, #b06fff);
       border-image-slice: 1;
     }
     nav ul {
@@ -34,24 +33,44 @@
     nav ul li a {
       text-decoration: none;
       color: inherit;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #b06fff;
     }
     nav img {
       height: 40px;
+    }
+    nav div a img {
+      transition: transform 0.3s ease;
+    }
+    nav div a:hover img {
+      transform: scale(1.15);
     }
 
     section {
       padding: 3rem 1.5rem;
       text-align: center;
     }
+
     .hero {
-      background: linear-gradient(to bottom right, #003333, #004d4d);
+      background: linear-gradient(-45deg, #40e0d0, #b06fff, #0f3b3a, #4b145e);
+      background-size: 600% 600%;
+      animation: gradientFlow 15s ease infinite;
       color: white;
     }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .hero img {
       max-width: 100%;
       border-radius: 12px;
       margin-top: 2rem;
     }
+
     .menu-items {
       display: flex;
       flex-wrap: wrap;
@@ -100,7 +119,7 @@
 </head>
 <body>
 
-<!-- NEW Coca-Cola-style Navigation Header -->
+<!-- ✅ Top Navigation -->
 <nav>
   <!-- Left: Logo -->
   <div>
@@ -115,14 +134,18 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 
-  <!-- Right: Icons -->
+  <!-- Right: Social Icons -->
   <div style="display: flex; gap: 1em; align-items: center;">
-    <img src="assets/icons/icon-search.svg" alt="Search" style="height: 20px;" />
-    <img src="assets/icons/icon-globe.svg" alt="Language" style="height: 20px;" />
-    <img src="assets/icons/icon-accessibility.svg" alt="Accessibility" style="height: 20px;" />
+    <a href="https://www.instagram.com/yolobarloungeqat" target="_blank">
+      <img src="assets/images/instagram.png" alt="Instagram" style="height: 24px;">
+    </a>
+    <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank">
+      <img src="assets/images/tiktok.png" alt="TikTok" style="height: 24px;">
+    </a>
   </div>
 </nav>
 
+<!-- 🔥 Animated Gradient Hero -->
 <section class="hero" id="reservation">
   <h2>Sip, Celebrate, and Explore the Fusion of Cultures</h2>
   <p>Bold flavors. Bold atmosphere. Live DJ spinning nightly vibes.</p>
