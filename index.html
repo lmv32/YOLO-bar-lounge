@@ -181,25 +181,32 @@
 </head>
 <body>
 
-<nav>
-  <div>
-    <img src="assets/images/yolo-logo-nav.png" alt="YOLO Logo" style="height: 48px;" />
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  </div>
-  <ul>
+<nav class="header-container">
+  <!-- Logo -->
+  <a href="/">
+    <img src="assets/images/yolo-logo-transparent.png" alt="YOLO Logo" class="logo" />
+  </a>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
     <li><a onclick="openReservationModal()">Reservation</a></li>
     <li><a href="#music" onclick="scrollToSection(event, 'music')">DJ / Live Music</a></li>
     <li><a href="#gallery" onclick="scrollToSection(event, 'gallery')">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-<div style="display: flex; gap: 1em; align-items: center;">
-  <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" aria-label="Instagram">
-    <img src="assets/images/instagram.png" alt="Instagram" style="height: 32px; width: 32px; object-fit: contain;">
 
-  <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" aria-label="TikTok">
-    <img src="assets/images/tiktok.png" alt="TikTok" style="height: 49px; width: 49px; object-fit: contain;">
-  </a>
-</div>
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="https://www.instagram.com/yolobarloungeqat" target="_blank" aria-label="Instagram">
+      <img src="assets/images/instagram.png" alt="Instagram" class="social-icon" />
+    </a>
+    <a href="https://www.tiktok.com/@yolo.bar.lounge.qat" target="_blank" aria-label="TikTok">
+      <img src="assets/images/tiktok.png" alt="TikTok" class="social-icon" />
+    </a>
+  </div>
+
+  <!-- Mobile Toggle (optional for hamburger menu) -->
+  <!-- Add JS if enabling hamburger toggle -->
 </nav>
   <!-- 📆 Reservation Modal -->
 <div id="reservationModal" class="modal">
